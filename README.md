@@ -11,9 +11,9 @@ https://www.youtube.com/watch?v=msttfIHHkak
 
 ![Screenshot](./pics/maze.png)
 
-![Screenshot](./pics/bfs.png)
+![Screenshot](./pics/BFS.png)
 
-![Screenshot](./pics/dfs.png)
+![Screenshot](./pics/DFS.png)
 
 ## Features
 
