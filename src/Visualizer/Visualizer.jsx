@@ -49,7 +49,7 @@ export default class Visualizer extends Component {
                     <input type='radio' id='setEnd' name='mode' value={Constants.SET_END} onChange={this.changeMode} checked={this.state.mode === Constants.SET_END}></input>
                     <label htmlFor='setEnd'>Set End</label>
                 </div>
-                <table id="grid">
+                <table id="grid" style={{marginLeft: 'auto', marginRight: 'auto'}}>
                     {this.genTable()}
                 </table>
                 <table style={{margin: 20 + 'px'}}>

@@ -1,3 +1,48 @@
+# Pathfinding Visualizer
+
+Visualize classic pathfinding algorithms such as BFS and DFS in action!
+
+This project is inspired by Clément Mihailescu from YouTube, a great guy with awesome video. However, he does not provide a GitHub link or any implementation. So I just followed his idea and reimplemented this Path Finding Visualizer. Hope you enjoy it. Here is his YouTube video link.
+
+https://www.youtube.com/watch?v=msttfIHHkak
+
+## click [HERE](https://master.dvk5at7fgzwiz.amplifyapp.com/) to play with it
+
+
+![Screenshot](./pics/maze.png)
+
+![Screenshot](./pics/bfs.png)
+
+![Screenshot](./pics/dfs.png)
+
+## Features
+
+- Visualize Breadth First Search (BFS) and Depth First Search (DFS) algorithms.
+- Interactively set and remove obstacles on the grid.
+- Easily move start and end points.
+- Clear grid with a single click.
+
+## Setup
+
+```bash
+git clone https://github.com/your_username/pathfinding-visualizer.git
+cd pathfindingvisualizer
+npm install
+npm start
+```
+
+The application should now be running on `http://localhost:3000/`.
+
+# Contributor
+
+- Zijie Wang
+
+  wangzj@bu.edu
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

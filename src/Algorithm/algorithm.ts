@@ -1,10 +1,10 @@
 
 export default interface algorithm {
     
-    step(count);
+    step(depth);
 
     run();  // return process[], where process[i] is Array<point>
 
-    findPath(visited_arr);
+    findPath();
 
 }
