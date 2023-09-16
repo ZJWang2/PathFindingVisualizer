@@ -2,7 +2,7 @@
 
 Visualize classic pathfinding algorithms such as BFS and DFS in action!
 
-This project is inspired by Clément Mihailescu from YouTube, a great guy with awesome video. However, he does not provide a GitHub link or any implementation. So I just followed his idea and reimplemented this Path Finding Visualizer. Hope you enjoy it. Here is his YouTube video link.
+This project is inspired by Clément Mihailescu from YouTube, a great guy with awesome video. However, he does not provide a GitHub link or any implementation. So I just followed his idea and reimplemented this Path Finding Visualizer. Hope you enjoy it. Here is his YouTube video link. :D
 
 https://www.youtube.com/watch?v=msttfIHHkak
 
