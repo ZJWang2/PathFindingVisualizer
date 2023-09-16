@@ -1,0 +1,12 @@
+td {
+    background-color: rgb(199, 188, 188);
+    border: 4px solid transparent;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s; 
+    transform-origin: center; 
+}
+
+td:hover {
+    transform: scale(1.5); 
+}
+
