@@ -14,23 +14,23 @@ export default class Visualizer extends Component {
             mode: Constants.SET_BLOCKS, 
             //start: [0, 0],
             //end: [19, 19],
-            _size_m: '19',
-            _size_n: '19',
+            _size_m: '15',
+            _size_n: '15',
             change: 1
         };
         
         //this.algo;
         
-        this.size_m = 19;
-        this.size_n = 19;
+        this.size_m = 15;
+        this.size_n = 15;
         this.start = [0, 0];
-        this.end = [18, 18];
+        this.end = [14, 14];
         this.isDragging = false;
         this.unvisitedColor = "";
         this.lastColor = Constants.startColor;
 
-        this.grid = new Grid(19, 19, Array.from(this.start), Array.from(this.end));
-        this.maze = new MazeGenerator(10, 10, this.grid);
+        this.grid = new Grid(15, 15, Array.from(this.start), Array.from(this.end));
+        this.maze = new MazeGenerator(8, 8, this.grid);
         
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
@@ -78,9 +78,10 @@ export default class Visualizer extends Component {
                     <input type='radio' id='setEnd' name='mode' value={Constants.SET_END} onChange={this.changeMode} checked={this.state.mode === Constants.SET_END}></input>
                     <label htmlFor='setEnd'>Set End</label>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
                     <div style={{display: 'flex', flexDirection: 'column', width: 250 + 'px'}}>
-                        <span style={{fontSize: 20}}>Only positive odd numbers will be accepted as width and height!</span>
+                        <span style={{fontSize: 18}}>Only positive odd numbers will be accepted as width and height!</span>
+                        <span style={{fontSize: 18, fontWeight: 800}}>MAX height and weight: 51</span>
                         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                             <table><tr><td id="unvisited" ></td></tr></table>
                             <span>Unvisited</span>
@@ -164,6 +165,7 @@ export default class Visualizer extends Component {
         else if(this.state.mode === Constants.SET_START && (x !== this.end[0] || y !== this.end[1])){
             this.grid.displaySquare(this.start[0], this.start[1], this.unvisitedColor);
             this.grid.displaySquare(x, y, Constants.startColor);
+            this.grid.setSquare(x, y, Constants.UNVISITED);
             //this.setState({start: [x, y]});
             this.start = [x, y];
             this.grid.setStart([x, y]);
@@ -171,6 +173,7 @@ export default class Visualizer extends Component {
         else if(this.state.mode === Constants.SET_END && (x !== this.start[0] || y !== this.start[1])){
             this.grid.displaySquare(this.end[0], this.end[1], this.unvisitedColor);
             this.grid.displaySquare(x, y, Constants.endColor);
+            this.grid.setSquare(x, y, Constants.UNVISITED);
             //this.setState({end: [x, y]});
             this.end = [x, y];
             this.grid.setEnd([x, y]);
@@ -249,7 +252,7 @@ export default class Visualizer extends Component {
     setSize() {
         const m = parseInt(this.state._size_m);
         const n = parseInt(this.state._size_n);
-        if(isNaN(m) || m <= 2 || m%2 === 0){
+        if(isNaN(m) || m <= 2 || m%2 === 0 || m > Constants.MAX_HEIGHT){
             document.getElementById("setHeight").classList.add("error");
             console.log("Error on height");
             return ;
@@ -257,7 +260,7 @@ export default class Visualizer extends Component {
         else{
             document.getElementById("setHeight").classList.remove("error");
         }
-        if(isNaN(n) || n <= 2 || n%2 === 0){
+        if(isNaN(n) || n <= 2 || n%2 === 0 || n > Constants.MAX_WIDTH){
             document.getElementById("setWidth").classList.add("error");
             console.log("Error on width");
             return ;
@@ -361,12 +364,13 @@ export default class Visualizer extends Component {
     }
 
     genMaze() {
-        //console.log(this.grid.grid);
+        
         this.maze.gen();
-        this.grid.setSquare(this.start[0], this.start[1], Constants.UNVISITED);
-        this.grid.setSquare(this.end[0], this.end[0], Constants.UNVISITED);
+        
         const m = this.size_m;
         const n = this.size_n;
+        this.grid.setSquare(this.start[0], this.start[1], Constants.UNVISITED);
+        this.grid.setSquare(this.end[0], this.end[0], Constants.UNVISITED);
         for(let i=0; i<m; i++)
             for(let j=0; j<n; j++)
                 if(this.grid.getSquare(i, j) === Constants.UNVISITED)
@@ -375,6 +379,7 @@ export default class Visualizer extends Component {
                     this.grid.displaySquare(i, j, Constants.blockColor);
         this.grid.displaySquare(this.start[0], this.start[1], Constants.startColor);
         this.grid.displaySquare(this.end[0], this.end[1], Constants.endColor);
+        //console.log(this.grid.grid);
     }
 
     IDtoCoord(id) {
