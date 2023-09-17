@@ -31,16 +31,16 @@ export default class Grid {
     }
 
     displaySquare(x, y, color) {
-        this.refs[x][y].current.style.backgroundColor = color;
+        this.refs[x][y].style.backgroundColor = color;
     }
 
     displayText(x, y, text) {
-        this.refs[x][y].current.innerText = String(text);
-        //this.refs[x][y].current.textContent = String(text);
+        this.refs[x][y].innerText = String(text);
+        //this.refs[x][y].textContent = String(text);
     }
 
     displayBorder(x, y, border) {
-        this.refs[x][y].current.style.border = border;
+        this.refs[x][y].style.border = border;
     }
 
     setSquare(x, y, val) {

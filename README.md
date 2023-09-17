@@ -17,10 +17,18 @@ https://www.youtube.com/watch?v=msttfIHHkak
 
 ## Features
 
+### Version 1.0 (09/16/23)
+
 - Visualize Breadth First Search (BFS) and Depth First Search (DFS) algorithms.
 - Interactively set and remove obstacles on the grid.
 - Easily move start and end points.
 - Clear grid with a single click.
+
+### Version 2.0 (09/17/23)
+
+- Generate a maze with a single click.
+- Customized grid size
+- Bigger button and legends lol :D
 
 ## Setup
 

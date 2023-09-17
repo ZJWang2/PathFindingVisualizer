@@ -10,3 +10,15 @@ td:hover {
     transform: scale(1.5); 
 }
 
+button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+}
+
+.error {
+    border: 1px solid red;
+    background-color: rgb(203, 177, 177);
+    color: red;
+}
+

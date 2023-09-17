@@ -1,6 +1,6 @@
 
-export const size_m = 20;
-export const size_n = 20;
+//export const size_m = 20;
+//export const size_n = 20;
 
 export const BFS_SPEED = 80;
 export const DFS_SPEED = 60;
